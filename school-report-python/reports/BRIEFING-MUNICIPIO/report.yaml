@@ -1,0 +1,30 @@
+id: BRIEFING-MUNICIPIO
+name: Briefing Local por Municipio
+description: Briefing executivo gerado a partir de CSV ou planilha local, filtrado por codigo IBGE do municipio.
+version: 0.1.0
+
+parameters:
+  - name: cod_ibge
+    type: string
+    required: true
+    description: Codigo IBGE do municipio que sera usado para selecionar a linha do arquivo de entrada
+  - name: input_file
+    type: string
+    required: true
+    description: Caminho para arquivo CSV, XLSX ou XLS com uma linha por municipio
+
+sources:
+  bigquery:
+    project: br-mec-segape
+
+queries: []
+
+charts: []
+
+template:
+  entry: template/main.typ
+  assets: template/assets
+
+cache:
+  enabled: false
+  ttl_days: 30

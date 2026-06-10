@@ -1,0 +1,68 @@
+# Complex test report with parameters and charts
+id: TEST_COMPLEX
+name: Complex Test Report
+description: A complex report for testing with parameters and charts
+version: 2.0.0
+
+parameters:
+  - name: cod_ibge
+    type: string
+    required: true
+    description: Municipal IBGE code
+    pattern: "^[0-9]{7}$"
+
+  - name: ano
+    type: integer
+    required: false
+    default: 2024
+    min: 2020
+    max: 2030
+
+  - name: include_charts
+    type: boolean
+    required: false
+    default: true
+
+sources:
+  bigquery:
+    project: test-project
+    dataset: test_dataset
+  postgres:
+    connection: default
+
+queries:
+  - name: municipio
+    source: bigquery
+    file: queries/municipio.sql
+
+  - name: matriculas
+    source: bigquery
+    file: queries/matriculas.sql
+
+  - name: cache_check
+    source: postgres
+    file: queries/cache.sql
+
+charts:
+  - name: matriculas_bar
+    type: bar
+    data: matriculas
+    x: etapa
+    y: total
+    title: Matrículas por Etapa
+    color: "#2E4172"
+
+  - name: demografico_donut
+    type: donut
+    data: municipio
+    values: count
+    labels: category
+    colors: ["#2E4172", "#FF7F00", "#4CAF50"]
+
+template:
+  entry: template/main.typ
+  assets: template/assets
+
+cache:
+  enabled: true
+  ttl_days: 7

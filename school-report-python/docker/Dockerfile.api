@@ -1,0 +1,80 @@
+# syntax=docker/dockerfile:1
+
+# Stage 1: Build stage
+FROM python:3.12-slim-bookworm AS builder
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install uv for fast Python package management
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# Set working directory
+WORKDIR /app
+
+# Copy dependency files
+COPY pyproject.toml uv.lock ./
+
+# Install dependencies to a virtual environment
+RUN uv sync --frozen --no-dev --no-install-project
+
+# Copy application code
+COPY src/ ./src/
+COPY migrations/ ./migrations/
+
+# Install the project
+RUN uv sync --frozen --no-dev
+
+
+# Stage 2: Runtime stage
+FROM python:3.12-slim-bookworm AS runtime
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Typst for PDF generation
+    curl \
+    && curl -fsSL https://typst.community/typst-install/install.sh | sh -s -- -y \
+    && rm -rf /var/lib/apt/lists/*
+
+# Add typst to PATH
+ENV PATH="/root/.typst/bin:$PATH"
+
+# Create non-root user
+RUN useradd --create-home --shell /bin/bash appuser
+
+# Set working directory
+WORKDIR /app
+
+# Copy virtual environment from builder
+COPY --from=builder /app/.venv /app/.venv
+
+# Copy application code
+COPY --from=builder /app/src /app/src
+COPY --from=builder /app/migrations /app/migrations
+
+# Set environment variables
+ENV VIRTUAL_ENV=/app/.venv
+ENV PATH="/app/.venv/bin:$PATH"
+ENV PYTHONPATH=/app/src
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# API-specific settings
+ENV HOST=0.0.0.0
+ENV PORT=8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:${PORT}/health || exit 1
+
+# Switch to non-root user
+USER appuser
+
+# Expose port
+EXPOSE 8000
+
+# Run the API server
+CMD ["uvicorn", "schoolreport.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

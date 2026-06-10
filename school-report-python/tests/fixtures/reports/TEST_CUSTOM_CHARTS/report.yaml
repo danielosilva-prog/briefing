@@ -1,0 +1,33 @@
+# Test report with custom Python-defined charts
+id: TEST_CUSTOM_CHARTS
+name: Custom Charts Test Report
+description: A test report demonstrating Python-defined custom charts
+version: 1.0.0
+
+parameters:
+  - name: year
+    type: integer
+    required: false
+    default: 2024
+
+sources:
+  bigquery:
+    project: test-project
+    dataset: test_dataset
+
+queries:
+  - name: enrollment
+    source: bigquery
+    file: queries/enrollment.sql
+
+  - name: demographics
+    source: bigquery
+    file: queries/demographics.sql
+
+# No charts section needed - charts are defined in charts.py
+
+template:
+  entry: template/main.typ
+
+cache:
+  enabled: false

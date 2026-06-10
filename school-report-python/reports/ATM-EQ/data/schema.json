@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Relatório - Aqui Tem MEC Equidade - Input Schema",
+  "description": "Schema de validação para dados de entrada do relatório ATM-EQ",
+  "type": "object",
+  "required": ["metadata", "params"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Metadados do relatório",
+      "required": ["instituicao", "sigla"],
+      "properties": {
+        "instituicao": {
+          "type": "string",
+          "description": "Nome completo da instituição",
+          "example": "Universidade Federal de Alagoas"
+        },
+        "sigla": {
+          "type": "string",
+          "description": "Sigla da instituição",
+          "example": "UFAL"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Data/hora de geração do relatório"
+        },
+        "system_version": {
+          "type": "string",
+          "description": "Versão do sistema que gerou o relatório",
+          "example": "1.0.0"
+        }
+      }
+    },
+    "params": {
+      "type": "object",
+      "description": "Parâmetros de entrada do relatório",
+      "required": ["instituicao_id", "ano_base"],
+      "properties": {
+        "instituicao_id": {
+          "type": "string",
+          "description": "ID único da instituição",
+          "example": "UFAL"
+        },
+        "ano_base": {
+          "type": "integer",
+          "description": "Ano de referência dos dados",
+          "minimum": 2000,
+          "maximum": 2100,
+          "example": 2024
+        }
+      }
+    },
+    "queries": {
+      "type": "object",
+      "description": "Resultados das queries executadas",
+      "properties": {
+        "main_query": {
+          "type": "array",
+          "description": "Resultado da query principal",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "charts": {
+      "type": "object",
+      "description": "Gráficos gerados (base64)",
+      "properties": {
+        "grafico_exemplo": {
+          "type": "string",
+          "description": "Gráfico de exemplo em base64",
+          "contentEncoding": "base64"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "instituicao": "Universidade Federal de Exemplo",
+    "sigla": "UFEX",
+    "generated_at": "2026-02-04T10:00:00Z",
+    "system_version": "1.0.0"
+  },
+  "params": {
+    "instituicao_id": "UFEX",
+    "ano_base": 2024
+  },
+  "queries": {},
+  "charts": {}
+}

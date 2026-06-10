@@ -1,0 +1,32 @@
+id: BRIEFING
+name: Briefing - Visita Ministerial
+description: Briefing executivo em formato curto, gerado a partir do codigo IBGE.
+version: 0.1.0
+
+parameters:
+  - name: cod_ibge
+    type: string
+    required: true
+    description: Codigo IBGE do territorio de referencia
+
+sources:
+  bigquery:
+    project: br-mec-segape
+
+queries:
+  - name: briefing_contexto
+    source: bigquery
+    file: queries/briefing_contexto.sql
+  - name: briefing_sections
+    source: bigquery
+    file: queries/briefing_sections.sql
+
+charts: []
+
+template:
+  entry: template/main.typ
+  assets: template/assets
+
+cache:
+  enabled: false
+  ttl_days: 30

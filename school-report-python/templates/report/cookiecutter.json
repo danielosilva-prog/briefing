@@ -1,0 +1,12 @@
+{
+    "report_id": "MY_REPORT",
+    "report_name": "My Report Name",
+    "description": "A description of your report",
+    "has_parameters": ["yes", "no"],
+    "parameter_name": "cod_ibge",
+    "parameter_type": ["string", "integer"],
+    "parameter_description": "IBGE municipal code",
+    "author": "SEGAPE Team",
+    "_copy_without_render": [],
+    "_output_dir": "../../reports"
+}

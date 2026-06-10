@@ -1,0 +1,26 @@
+# Simple test report with no parameters
+id: TEST_SIMPLE
+name: Simple Test Report
+description: A simple report for testing
+version: 1.0.0
+
+parameters: []
+
+sources:
+  bigquery:
+    project: test-project
+
+queries:
+  - name: test_data
+    source: bigquery
+    file: queries/test.sql
+
+charts: []
+
+template:
+  entry: template/main.typ
+  assets: template/assets
+
+cache:
+  enabled: true
+  ttl_days: 30

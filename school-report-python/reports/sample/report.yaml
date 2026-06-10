@@ -1,0 +1,32 @@
+id: SAMPLE
+name: Sample Report
+description: Simple sample report demonstrating the Python report pipeline
+version: 1.0.0
+
+parameters: []  # No parameters (simplest case)
+
+sources:
+  bigquery:
+    project: br-mec-segape
+
+queries:
+  - name: instituicoes_por_regiao
+    source: bigquery
+    file: queries/instituicoes_por_regiao.sql
+    description: Count of higher education institutions by region
+
+charts:
+  - name: instituicoes_bar
+    type: bar
+    data: instituicoes_por_regiao
+    x: regiao
+    y: total
+    title: Instituições de Ensino Superior por Região
+    color: "#2E4172"
+
+template:
+  entry: template/main.typ
+
+cache:
+  enabled: false
+  ttl_days: 1

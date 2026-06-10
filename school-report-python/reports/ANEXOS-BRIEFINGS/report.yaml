@@ -1,0 +1,34 @@
+id: ANEXOS-BRIEFINGS
+name: Anexos Briefings - Obras SETEC e SESU
+description: Anexos de obras por UF e secretaria, gerados a partir de CSV local.
+version: 0.1.0
+
+parameters:
+  - name: uf
+    type: string
+    required: true
+    description: Sigla da UF usada para filtrar as obras
+  - name: secretaria
+    type: string
+    required: true
+    description: Secretaria do anexo, SETEC ou SESU
+  - name: input_file
+    type: string
+    required: true
+    description: Caminho para arquivo CSV, XLSX ou XLS com as obras
+
+sources:
+  bigquery:
+    project: br-mec-segape
+
+queries: []
+
+charts: []
+
+template:
+  entry: template/main.typ
+  assets: template/assets
+
+cache:
+  enabled: false
+  ttl_days: 30

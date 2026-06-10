@@ -1,0 +1,79 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# uv
+.uv/
+
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+.hypothesis/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# GCP credentials (NEVER COMMIT)
+.gcp-credentials.json
+*-credentials.json
+service-account-*.json
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+reports/*/template/.chart_*.svg
+reports/*/template/.data_*.json
+.tmp/
+*.zip
+
+# PDFs and outputs
+output/
+*.pdf
+# Add test_output/ to .gitignore
+test_output/

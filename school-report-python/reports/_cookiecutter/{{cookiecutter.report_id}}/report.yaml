@@ -1,0 +1,65 @@
+id: {{ cookiecutter.report_id }}
+name: {{ cookiecutter.report_name }}
+description: {{ cookiecutter.report_description }}
+version: {{ cookiecutter.report_version }}
+maintainer: {{ cookiecutter.maintainer }}
+last_updated: "{{ '%Y-%m-%d' | strftime }}"
+
+# BigQuery queries (se has_queries == "yes")
+{% if cookiecutter.has_queries == "yes" %}
+queries:
+  - name: main_query
+    description: "Query principal do relatório"
+    file: queries/main_query.sql
+    required: true
+{% else %}
+# Nenhuma query configurada (dados vêm via JSON)
+queries: []
+{% endif %}
+
+# Gráficos dinâmicos (se has_charts == "yes")
+{% if cookiecutter.has_charts == "yes" %}
+charts:
+  types:
+    - bar         # Barras
+    - line        # Linhas
+    - pie         # Pizza
+    - gauge       # Gauge/medidor
+    - stacked     # Empilhado
+    - grouped     # Agrupado
+{% else %}
+# Nenhum gráfico dinâmico
+charts: []
+{% endif %}
+
+# Template Typst
+template:
+  entry: template/main.typ
+  assets: template/assets
+
+# Schema de validação de entrada
+input:
+  schema: data/schema.json
+  required: true
+
+# Configuração de cache
+cache:
+  enabled: {{ cookiecutter.cache_enabled }}
+  ttl_days: {{ cookiecutter.cache_ttl_days }}
+
+# Parâmetros do relatório
+parameters:
+  - name: instituicao_id
+    type: string
+    required: true
+    description: "ID da instituição"
+  - name: ano_base
+    type: integer
+    required: true
+    description: "Ano de referência"
+
+# Output
+output:
+  filename_template: "{{ cookiecutter.report_id | lower }}-{instituicao_id}-{timestamp}.pdf"
+  gcs_bucket: "segape-reports"
+  gcs_path: "{{ cookiecutter.report_id }}"

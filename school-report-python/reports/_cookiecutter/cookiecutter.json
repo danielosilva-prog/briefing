@@ -1,0 +1,22 @@
+{
+  "report_id": "ATS-XX",
+  "report_name": "Nome do Relatório",
+  "report_description": "Descrição do relatório",
+  "report_version": "1.0.0",
+  "maintainer": "SEGAPE",
+  "has_queries": ["yes", "no"],
+  "has_charts": ["yes", "no"],
+  "cache_enabled": ["no", "yes"],
+  "cache_ttl_days": "30",
+  "__prompts__": {
+    "report_id": "ID do relatório (ex: ATS-02, ATM, ATSBR)",
+    "report_name": "Nome completo do relatório",
+    "report_description": "Descrição breve do relatório",
+    "report_version": "Versão inicial",
+    "maintainer": "Equipe responsável",
+    "has_queries": "O relatório executa queries no BigQuery?",
+    "has_charts": "O relatório gera gráficos dinâmicos?",
+    "cache_enabled": "Habilitar cache de relatórios?",
+    "cache_ttl_days": "Dias de validade do cache"
+  }
+}

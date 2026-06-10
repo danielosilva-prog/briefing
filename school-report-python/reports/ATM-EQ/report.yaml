@@ -1,0 +1,86 @@
+id: ATM-EQ
+name: Relatorio - Aqui Tem MEC Equidade
+description: Relatorio de Equidade Educacional
+version: 1.0.0
+
+parameters:
+  - name: cod_ibge
+    type: string
+    required: true
+    description: Codigo IBGE do municipio
+
+sources:
+  bigquery:
+    project: br-mec-segape
+
+queries:
+  - name: municipio_info
+    source: bigquery
+    file: queries/grafico_mapa_municipio_info.sql
+  - name: grafico_crescimento_vaar_fundeb_2023_2026
+    source: bigquery
+    file: queries/grafico_crescimento_vaar_fundeb_2023_2026.sql
+  - name: p2_pib_per_capita
+    source: bigquery
+    file: queries/p2_pib_per_capita.sql
+  - name: p2_numero_habitantes
+    source: bigquery
+    file: queries/p2_numero_habitantes.sql
+  - name: p2_populacao_quilombola
+    source: bigquery
+    file: queries/p2_populacao_quilombola.sql
+  - name: p2_comunidades_quilombolas_certificadas
+    source: bigquery
+    file: queries/p2_comunidades_quilombolas_certificadas.sql
+  - name: p3_condicionalidade_iii_vaar
+    source: bigquery
+    file: queries/p3_condicionalidade_iii_vaar.sql
+  - name: p2_vaar_media_uf
+    source: bigquery
+    file: queries/p2_vaar_media_uf.sql
+  - name: p2_vaar_previsto_municipio
+    source: bigquery
+    file: queries/p2_vaar_previsto_municipio.sql
+  - name: tabela_condicionalidades
+    source: bigquery
+    file: queries/tabela_condicionalidades.sql
+  - name: grafico_condicionalidades_uf
+    source: bigquery
+    file: queries/grafico_condicionalidades_uf.sql
+  - name: grafico_condicionalidades_brasil
+    source: bigquery
+    file: queries/grafico_condicionalidades_brasil.sql
+  - name: grafico_vaar_municipio_2023_2025
+    source: bigquery
+    file: queries/grafico_vaar_municipio_2023_2025.sql
+  - name: grafico_atendimento_creche_pre_escola
+    source: bigquery
+    file: queries/grafico_atendimento_creche_pre_escola.sql
+  - name: grafico_distribuicao_matriculas
+    source: bigquery
+    file: queries/grafico_distribuicao_matriculas.sql
+  - name: grafico_declaracao_racial
+    source: bigquery
+    file: queries/grafico_declaracao_racial.sql
+  - name: grafico_nivel_formacao_professores
+    source: bigquery
+    file: queries/grafico_nivel_formacao_professores.sql
+  - name: grafico_taxa_rendimento
+    source: bigquery
+    file: queries/grafico_taxa_rendimento.sql
+  - name: tabela_infraestrutura_basica
+    source: bigquery
+    file: queries/tabela_infraestrutura_basica.sql
+  - name: p6_diagnostico_equidade
+    source: bigquery
+    file: queries/p6_diagnostico_equidade.sql
+
+charts: []
+
+template:
+  entry: template/main.typ
+  assets: template/assets
+
+cache:
+  enabled: false
+  ttl_days: 30

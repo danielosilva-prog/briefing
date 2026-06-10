@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ATS-02 Report Data Schema",
+  "description": "Schema for ATS-02 budget execution report data",
+  "type": "object",
+  "required": ["metadata", "params"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Report metadata and generation information",
+      "required": ["sigla", "universidade"],
+      "properties": {
+        "sigla": {
+          "type": "string",
+          "description": "Institution acronym (e.g., UFAL, UFC)",
+          "pattern": "^[A-Z]{2,10}$",
+          "examples": ["UFAL", "UFC", "UFRJ"]
+        },
+        "universidade": {
+          "type": "string",
+          "description": "Full institution name",
+          "examples": ["Universidade Federal de Alagoas"]
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Report generation timestamp"
+        },
+        "system_version": {
+          "type": "string",
+          "description": "System version used for generation"
+        }
+      }
+    },
+    "params": {
+      "type": "object",
+      "description": "Report parameters",
+      "required": ["sigla"],
+      "properties": {
+        "sigla": {
+          "type": "string",
+          "description": "Institution acronym parameter"
+        },
+        "ano_base": {
+          "type": "integer",
+          "description": "Base year for the report",
+          "minimum": 2015,
+          "maximum": 2030
+        }
+      }
+    },
+    "queries": {
+      "type": "object",
+      "description": "Query results (currently empty, future BigQuery integration)",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          {
+            "type": "object"
+          }
+        ]
+      }
+    },
+    "charts": {
+      "type": "object",
+      "description": "Generated charts as base64-encoded images",
+      "additionalProperties": {
+        "type": "string",
+        "contentEncoding": "base64",
+        "description": "Base64-encoded PNG or SVG chart"
+      },
+      "examples": [
+        {
+          "p1_g1": "iVBORw0KGgoAAAANSUhEUgAA...",
+          "p1_g2": "iVBORw0KGgoAAAANSUhEUgAA...",
+          "p6_g1": "PHN2ZyB3aWR0aD0iMTUzIi..."
+        }
+      ]
+    },
+    "budget_data": {
+      "type": "object",
+      "description": "Budget execution data sections",
+      "properties": {
+        "p1": {
+          "type": "object",
+          "description": "Page 1 - Approved Budget Overview",
+          "properties": {
+            "anos": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Years for analysis"
+            },
+            "loa": {
+              "type": "array",
+              "items": {"type": "number"},
+              "description": "LOA values by year (in millions)"
+            },
+            "dotacao": {
+              "type": "array",
+              "items": {"type": "number"},
+              "description": "Updated budget allocation by year"
+            },
+            "tipo_orcamento": {
+              "type": "object",
+              "properties": {
+                "obrigatorio": {
+                  "type": "array",
+                  "items": {"type": "number"}
+                },
+                "discricionario": {
+                  "type": "array",
+                  "items": {"type": "number"}
+                },
+                "emendas": {
+                  "type": "array",
+                  "items": {"type": "number"}
+                }
+              }
+            }
+          }
+        },
+        "p6": {
+          "type": "object",
+          "description": "Page 6 - Liquidated Expenses",
+          "properties": {
+            "percent_geral": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Overall liquidation percentage"
+            },
+            "percent_obrigatorio": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "percent_discricionario": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "percent_emendas": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        }
+      }
+    }
+  }
+}

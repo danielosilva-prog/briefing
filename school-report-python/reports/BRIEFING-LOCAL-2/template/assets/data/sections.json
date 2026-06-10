@@ -1,0 +1,717 @@
+[
+  {
+    "ordem": 1,
+    "numero": "1.",
+    "titulo": "ESCOLAS CONECTADAS",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Escolas Conectadas (Nível 4 e 5)",
+        "column": "escolas_conectadas_nivel_4_5"
+      }
+    ]
+  },
+  {
+    "ordem": 2,
+    "numero": "2.",
+    "titulo": "ESCOLA EM TEMPO INTEGRAL (2023-2025)",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Matrículas fomentadas",
+        "column": "eti_matriculas_fomentadas"
+      },
+      {
+        "type": "field",
+        "label": "Valor fomentado",
+        "column": "eti_valor_fomentado"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "",
+        "column": "eti_serie_historica_alunos",
+        "value_bold": true,
+        "brasil_newline": true,
+        "brasil_separator": "",
+        "indent": true,
+        "split_items": true,
+        "note_prefixes": [
+          "(*) 2026"
+        ],
+        "bold_prefixes": [
+          "2019:",
+          "2022:",
+          "2023:",
+          "2026:"
+        ]
+      },
+      {
+        "type": "spacer"
+      }
+    ]
+  },
+  {
+    "ordem": 3,
+    "numero": "3.",
+    "titulo": "COMPROMISSO NACIONAL CRIANÇA ALFABETIZADA",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Cantinho de Leitura",
+        "column": "cnca_cantinho_leitura"
+      },
+      {
+        "type": "field",
+        "label": "Escolas Apoiadas",
+        "column": "cnca_escolas_apoiadas"
+      },
+      {
+        "type": "field",
+        "label": "Valor Investido em Cantinhos da Leitura",
+        "column": "cnca_valor_cantinhos"
+      },
+      {
+        "type": "field",
+        "label": "Articuladores RENALFA (2025)",
+        "column": "cnca_qtd_articuladores_total"
+      },
+      {
+        "type": "field",
+        "label": "Repasse para Articuladores RENALFA",
+        "column": "cnca_articuladores_renalpha_2026"
+      },
+      {
+        "type": "field",
+        "label": "Valor empenhado para aquisição de materiais",
+        "column": "cnca_valor_materiais"
+      },
+      {
+        "type": "field",
+        "label": "Valor empenhado para formação de profissionais da educação",
+        "column": "cnca_valor_formacao"
+      },
+      {
+        "type": "field",
+        "label": "TOTAL INVESTIDO",
+        "column": "cnca_total_investido",
+        "value_bold": true
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "Indicador de Alfabetização (ICA)",
+        "column": "ica_alfabetizacao",
+        "brasil_newline": true,
+        "brasil_separator": "",
+        "indent": true
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "",
+        "column": "saebsemnome",
+        "default": "(*) Em 2023, o SAEB era usado como métrica",
+        "indent": true,
+        "value_bold": true
+      }
+    ]
+  },
+  {
+    "ordem": 4,
+    "numero": "4.",
+    "titulo": "PÉ-DE-MEIA",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Estudantes beneficiados",
+        "column": "pdm_estudantes_beneficiados"
+      },
+      {
+        "type": "field",
+        "label": "Valor investido",
+        "column": "pdm_valor_investido"
+      },
+      {
+        "type": "field",
+        "label": "Abrangência",
+        "column": "pdm_abrangencia"
+      },
+      {
+        "type": "field",
+        "label": "Referência",
+        "column": "pdm_referencia"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "Taxa de distorção idade-série",
+        "column": "distorcao_idade_serie",
+        "brasil_newline": true,
+        "brasil_separator": "",
+        "indent": true,
+        "value_newline": true,
+        "bold_prefixes": [
+          "Ensino Médio:"
+        ],
+        "brasil_bold_prefixes": [
+          "BRASIL:"
+        ]
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "Taxa de reprovação",
+        "column": "taxa_reprovacao",
+        "brasil_newline": true,
+        "brasil_separator": "",
+        "indent": true,
+        "value_newline": true,
+        "bold_prefixes": [
+          "Ensino Médio:"
+        ],
+        "brasil_bold_prefixes": [
+          "BRASIL:"
+        ]
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "Taxa de abandono/evasão",
+        "column": "taxa_abandono_evasao",
+        "brasil_newline": true,
+        "brasil_separator": "",
+        "indent": true,
+        "value_newline": true,
+        "bold_prefixes": [
+          "Ensino Médio:"
+        ],
+        "brasil_bold_prefixes": [
+          "BRASIL:"
+        ]
+      }
+    ],
+    "keep_together": true
+  },
+  {
+    "ordem": 5,
+    "numero": "5.",
+    "titulo": "PACTO NACIONAL PELA RETOMADA DAS OBRAS DA EDUCAÇÃO BÁSICA",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Total de obras aprovadas",
+        "column": "obras_total_aprovadas"
+      },
+      {
+        "type": "field",
+        "label": "Valor previsto das obras aprovadas",
+        "column": "obras_valor_previsto"
+      },
+      {
+        "type": "field",
+        "label": "Valor repassado das obras aprovadas",
+        "column": "obras_valor_repassado"
+      }
+    ],
+    "keep_together": true
+  },
+  {
+    "ordem": 6,
+    "numero": "6.",
+    "titulo": "NOVO PAC SELEÇÕES",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Creches",
+        "column": "novo_pac_creches"
+      },
+      {
+        "type": "field",
+        "label": "Valor Repasse",
+        "column": "novo_pac_creches_valor_previsto"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "Escolas em Tempo Integral",
+        "column": "novo_pac_eti"
+      },
+      {
+        "type": "field",
+        "label": "Valor Repasse",
+        "column": "novo_pac_eti_valor_previsto"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "Ônibus",
+        "column": "novo_pac_onibus"
+      },
+      {
+        "type": "field",
+        "label": "Valor Investimento",
+        "column": "novo_pac_onibus_valor_previsto"
+      }
+    ],
+    "keep_together": true
+  },
+  {
+    "ordem": 7,
+    "numero": "7.",
+    "titulo": "NOVO PAC – EDUCAÇÃO SUPERIOR",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Expansão",
+        "column": "novo_pac_superior_expansao"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "Consolidação",
+        "column": "novo_pac_superior_consolidacao"
+      },
+      {
+        "type": "list",
+        "column": "lista_obras_sesu_dinamica"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "Valor total previsto",
+        "column": "novo_pac_superior_total_previsto"
+      }
+    ],
+    "keep_together": true
+  },
+  {
+    "ordem": 8,
+    "numero": "8.",
+    "titulo": "NOVO PAC – EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Expansão",
+        "column": "novo_pac_ept_expansao"
+      },
+      {
+        "type": "list",
+        "column": "lista_expansao_setec_dinamica"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "Consolidação",
+        "column": "novo_pac_ept_consolidacao"
+      },
+      {
+        "type": "list",
+        "column": "lista_obras_setec_dinamica"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "field",
+        "label": "Valor total previsto",
+        "column": "novo_pac_ept_total_previsto"
+      }
+    ],
+    "keep_together": true
+  },
+  {
+    "ordem": 9,
+    "numero": "9.",
+    "titulo": "NOVO PAC – HU BRASIL",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Valor previsto",
+        "column": "novo_pac_hu_valor_previsto"
+      },
+      {
+        "type": "list",
+        "column": "lista_obras_hu_dinamica"
+      }
+    ],
+    "keep_together": true
+  },
+  {
+    "ordem": 10,
+    "numero": "10.",
+    "titulo": "FUNDEB",
+    "lines": [
+      {
+        "type": "field",
+        "label": "2022",
+        "column": "fundeb_2022"
+      },
+      {
+        "type": "field",
+        "label": "2023",
+        "column": "fundeb_2023"
+      },
+      {
+        "type": "field",
+        "label": "2024",
+        "column": "fundeb_2024"
+      },
+      {
+        "type": "field",
+        "label": "2025",
+        "column": "fundeb_2025"
+      },
+      {
+        "type": "field",
+        "label": "2026",
+        "column": "fundeb_2026"
+      },
+      {
+        "type": "field",
+        "label": "Complementação VAAF 2026",
+        "column": "fundeb_valor_repassado_VAAF"
+      },
+      {
+        "type": "field",
+        "label": "Complementação VAAT 2026",
+        "column": "fundeb_valor_repassado_VAAT"
+      },
+      {
+        "type": "field",
+        "label": "Complementação VAAR 2026",
+        "column": "fundeb_valor_repassado_VAAR"
+      }
+    ],
+    "keep_together": true
+  },
+  {
+    "ordem": 11,
+    "numero": "11.",
+    "titulo": "PNAE",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Escolas apoiadas",
+        "column": "pnae_escolas_apoiadas"
+      },
+      {
+        "type": "field",
+        "label": "Valor Investido",
+        "column": "pnae_valor_investido",
+        "brasil_newline": true,
+        "brasil_separator": "",
+        "split_items": true,
+        "bold_prefixes": [
+          "2022:",
+          "2023:",
+          "2024:",
+          "2025:",
+          "2026:"
+        ]
+      }
+    ],
+    "keep_together": true
+  },
+  {
+    "ordem": 12,
+    "numero": "12.",
+    "titulo": "PNATE",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Estudantes Beneficiados",
+        "column": "pnate_estudantes_beneficiados"
+      },
+      {
+        "type": "field",
+        "label": "Valor Investido",
+        "column": "pnate_valor_investido",
+        "brasil_newline": true,
+        "brasil_separator": "",
+        "split_items": true,
+        "min_year": 2022,
+        "bold_prefixes": [
+          "2022:",
+          "2023:",
+          "2024:",
+          "2025:",
+          "2026:"
+        ]
+      }
+    ],
+    "keep_together": true
+  },
+  {
+    "ordem": 13,
+    "numero": "13.",
+    "titulo": "INSTITUTOS FEDERAIS",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Nº de IF",
+        "column": "if_numero",
+        "hide_brasil": true
+      },
+      {
+        "type": "field",
+        "label": "Campi",
+        "column": "if_campi",
+        "hide_brasil": true
+      },
+      {
+        "type": "field",
+        "label": "Matrículas",
+        "column": "if_matriculas"
+      },
+      {
+        "type": "spacer"
+      },
+      {
+        "type": "if_table",
+        "tables": [
+          {
+            "title": "Visão Geral",
+            "rows": [
+              {
+                "periodo": "1837 até 2002",
+                "funcionando": "140",
+                "nao_funcionando": "0",
+                "total_if": "140",
+                "bold": true
+              },
+              {
+                "periodo": "2003 até 2016/maio",
+                "funcionando": "496",
+                "nao_funcionando": "6",
+                "total_if": "502",
+                "bold": true
+              },
+              {
+                "periodo": "2016/junho até 2018",
+                "funcionando": "17",
+                "nao_funcionando": "4",
+                "total_if": "21",
+                "bold": true
+              },
+              {
+                "periodo": "2019 até 2022",
+                "funcionando": "10",
+                "nao_funcionando": "6",
+                "total_if": "16",
+                "bold": true
+              },
+              {
+                "periodo": "A partir de 2023",
+                "funcionando": "6",
+                "nao_funcionando": "114",
+                "total_if": "120",
+                "bold": true
+              },
+              {
+                "periodo": "Autorizados",
+                "funcionando": "6",
+                "nao_funcionando": "42",
+                "total_if": "48",
+                "bold": false,
+                "italic": true,
+                "indent": true
+              },
+              {
+                "periodo": "A Autorizar",
+                "funcionando": "0",
+                "nao_funcionando": "72",
+                "total_if": "72",
+                "bold": false,
+                "italic": true,
+                "indent": true
+              },
+              {
+                "periodo": "Total Geral",
+                "funcionando": "669",
+                "nao_funcionando": "130",
+                "total_if": "799",
+                "bold": true,
+                "total": true
+              }
+            ]
+          },
+          {
+            "title": "Visão Novo PAC",
+            "rows": [
+              {
+                "periodo": "A partir de 2023",
+                "funcionando": "2",
+                "nao_funcionando": "109",
+                "total_if": "111",
+                "bold": true
+              },
+              {
+                "periodo": "Autorizada",
+                "funcionando": "2",
+                "nao_funcionando": "37",
+                "total_if": "39",
+                "bold": false,
+                "italic": true,
+                "indent": true
+              },
+              {
+                "periodo": "A Autorizar",
+                "funcionando": "0",
+                "nao_funcionando": "72",
+                "total_if": "72",
+                "bold": false,
+                "italic": true,
+                "indent": true
+              },
+              {
+                "periodo": "Total Geral",
+                "funcionando": "2",
+                "nao_funcionando": "109",
+                "total_if": "111",
+                "bold": true,
+                "total": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "keep_together": true
+  },
+  {
+    "ordem": 14,
+    "numero": "14.",
+    "titulo": "UNIVERSIDADES FEDERAIS",
+    "lines": [
+      {
+        "type": "field",
+        "label": "Instituições",
+        "column": "uf_instituicoes",
+        "hide_brasil": true
+      },
+      {
+        "type": "field",
+        "label": "Campi",
+        "column": "uf_campi",
+        "hide_brasil": true
+      },
+      {
+        "type": "campi_table",
+        "overview_title": "Visão Geral (inclusive Expansão Novo PAC)",
+        "overview_column": "uf_campi_visao_geral",
+        "expansion_title": "Somente Expansão Novo PAC",
+        "expansion_column": "uf_campi_expansao_novopac",
+        "overview_rows": [
+          {
+            "label": "1920 a 2002",
+            "value": "137",
+            "bold": true
+          },
+          {
+            "label": "2003 até 2016/maio",
+            "value": "181",
+            "bold": true
+          },
+          {
+            "label": "2016/junho até 2018",
+            "value": "3",
+            "bold": true
+          },
+          {
+            "label": "2019 até 2022",
+            "value": "5",
+            "bold": true
+          },
+          {
+            "label": "A partir de 2023",
+            "value": "18",
+            "bold": true
+          },
+          {
+            "label": "Funcionando",
+            "value": "14",
+            "indent": true
+          },
+          {
+            "label": "Não Funcionando",
+            "value": "4",
+            "indent": true
+          },
+          {
+            "label": "Total Geral",
+            "value": "344",
+            "bold": true,
+            "total": true
+          }
+        ],
+        "expansion_rows": [
+          {
+            "label": "A partir de 2023",
+            "value": "10",
+            "bold": true
+          },
+          {
+            "label": "Funcionando",
+            "value": "9",
+            "indent": true
+          },
+          {
+            "label": "Não Funcionando",
+            "value": "1",
+            "indent": true
+          },
+          {
+            "label": "Total Geral",
+            "value": "10",
+            "bold": true,
+            "total": true
+          }
+        ]
+      },
+      {
+        "type": "field",
+        "label": "Matrículas Graduação",
+        "column": "uf_matriculas_graduacao"
+      }
+    ],
+    "keep_together": true
+  }
+]

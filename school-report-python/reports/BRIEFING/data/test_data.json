@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "title": "BRIEFING – Visita Ministerial à Paraíba"
+  },
+  "params": {
+    "cod_ibge": "25"
+  },
+  "queries": {
+    "briefing_contexto": [
+      {
+        "cod_ibge": "25",
+        "territorio": "Paraíba",
+        "titulo": "BRIEFING – Visita Ministerial à Paraíba"
+      }
+    ],
+    "briefing_sections": [
+      {
+        "ordem": 1,
+        "numero": "1.1",
+        "titulo": "ESCOLAS CONECTADAS",
+        "indicadores": [
+          {
+            "rotulo": "Escolas Conectadas (Nível 4 e 5)",
+            "valor": "2.934 (78,8%)"
+          }
+        ]
+      },
+      {
+        "ordem": 2,
+        "numero": "1.2",
+        "titulo": "ESCOLA EM TEMPO INTEGRAL (2023-2025)",
+        "indicadores": [
+          {
+            "rotulo": "Matrículas fomentadas",
+            "valor": "29.811"
+          },
+          {
+            "rotulo": "Valor fomentado",
+            "valor": "R$ 186,8 milhões"
+          }
+        ]
+      },
+      {
+        "ordem": 3,
+        "numero": "1.3",
+        "titulo": "COMPROMISSO NACIONAL CRIANÇA ALFABETIZADA",
+        "indicadores": [
+          {
+            "rotulo": "Cantinho de Leitura",
+            "valor": "3.693"
+          },
+          {
+            "rotulo": "Escolas Apoiadas",
+            "valor": "2.128"
+          },
+          {
+            "rotulo": "Valor Investido em Cantinhos da Leitura",
+            "valor": "R$ 4,56 milhões"
+          },
+          {
+            "rotulo": "Articuladores RENALFA (2025)",
+            "valor": "267"
+          },
+          {
+            "rotulo": "Repasse para Articuladores RENALFA",
+            "valor": "R$ 9,02 milhões"
+          },
+          {
+            "rotulo": "Valor empenhado para aquisição de materiais",
+            "valor": "R$ 4,62 milhões"
+          },
+          {
+            "rotulo": "Valor empenhado para formação de profissionais da educação",
+            "valor": "R$ 26 mi"
+          },
+          {
+            "rotulo": "TOTAL INVESTIDO",
+            "valor": "R$ 44,20 milhões"
+          }
+        ]
+      }
+    ]
+  },
+  "charts": {},
+  "template_params": {}
+}

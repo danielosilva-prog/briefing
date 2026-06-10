@@ -1,0 +1,308 @@
+[
+  {
+    "ordem": 1,
+    "numero": "1.1",
+    "titulo": "ESCOLAS CONECTADAS",
+    "indicadores": [
+      {
+        "rotulo": "Escolas Conectadas (Nível 4 e 5)",
+        "coluna": "escolas_conectadas_nivel_4_5"
+      }
+    ]
+  },
+  {
+    "ordem": 2,
+    "numero": "1.2",
+    "titulo": "ESCOLA EM TEMPO INTEGRAL (2023-2025)",
+    "indicadores": [
+      {
+        "rotulo": "Matrículas fomentadas",
+        "coluna": "eti_matriculas_fomentadas"
+      },
+      {
+        "rotulo": "Valor fomentado",
+        "coluna": "eti_valor_fomentado"
+      }
+    ]
+  },
+  {
+    "ordem": 3,
+    "numero": "1.3",
+    "titulo": "COMPROMISSO NACIONAL CRIANÇA ALFABETIZADA",
+    "indicadores": [
+      {
+        "rotulo": "Cantinho de Leitura",
+        "coluna": "cnca_cantinho_leitura"
+      },
+      {
+        "rotulo": "Escolas Apoiadas",
+        "coluna": "cnca_escolas_apoiadas"
+      },
+      {
+        "rotulo": "Valor Investido em Cantinhos da Leitura",
+        "coluna": "cnca_valor_cantinhos"
+      },
+      {
+        "rotulo": "Articuladores RENALFA (2025)",
+        "coluna": "cnca_qtd_articuladores_total"
+      },
+      {
+        "rotulo": "Repasse para Articuladores RENALFA",
+        "coluna": "cnca_articuladores_renalpha_2025"
+      },
+      {
+        "rotulo": "Valor empenhado para aquisição de materiais",
+        "coluna": "cnca_valor_materiais"
+      },
+      {
+        "rotulo": "Valor empenhado para formação de profissionais da educação",
+        "coluna": "cnca_valor_formacao"
+      },
+      {
+        "rotulo": "TOTAL INVESTIDO",
+        "coluna": "cnca_total_investido"
+      }
+    ]
+  },
+  {
+    "ordem": 4,
+    "numero": "1.4",
+    "titulo": "PÉ-DE-MEIA",
+    "indicadores": [
+      {
+        "rotulo": "Estudantes beneficiados",
+        "coluna": "pdm_estudantes_beneficiados"
+      },
+      {
+        "rotulo": "Valor investido",
+        "coluna": "pdm_valor_investido"
+      },
+      {
+        "rotulo": "Abrangência",
+        "coluna": "pdm_abrangencia"
+      },
+      {
+        "rotulo": "Referência",
+        "coluna": "pdm_referencia"
+      }
+    ]
+  },
+  {
+    "ordem": 5,
+    "numero": "1.5",
+    "titulo": "PACTO NACIONAL PELA RETOMADA DAS OBRAS DA EDUCAÇÃO BÁSICA",
+    "indicadores": [
+      {
+        "rotulo": "Total de obras aprovadas",
+        "coluna": "obras_total_aprovadas"
+      },
+      {
+        "rotulo": "Valor previsto das obras aprovadas",
+        "coluna": "obras_valor_previsto"
+      },
+      {
+        "rotulo": "Valor repassado das obras aprovadas",
+        "coluna": "obras_valor_repassado"
+      }
+    ]
+  },
+  {
+    "ordem": 6,
+    "numero": "1.6",
+    "titulo": "NOVO PAC SELEÇÕES",
+    "indicadores": [
+      {
+        "rotulo": "Creches",
+        "coluna": "novo_pac_creches"
+      },
+      {
+        "rotulo": "Valor Repasse",
+        "coluna": "novo_pac_creches_valor_previsto"
+      },
+      {
+        "rotulo": "Escolas em Tempo Integral",
+        "coluna": "novo_pac_eti"
+      },
+      {
+        "rotulo": "Valor Repasse",
+        "coluna": "novo_pac_eti_valor_previsto"
+      },
+      {
+        "rotulo": "Ônibus",
+        "coluna": "novo_pac_onibus"
+      },
+      {
+        "rotulo": "Valor Investimento",
+        "coluna": "novo_pac_onibus_valor_previsto"
+      }
+    ]
+  },
+  {
+    "ordem": 7,
+    "numero": "1.7",
+    "titulo": "NOVO PAC – EDUCAÇÃO SUPERIOR",
+    "indicadores": [
+      {
+        "rotulo": "Expansão",
+        "coluna": "novo_pac_superior_expansao"
+      },
+      {
+        "rotulo": "Consolidação",
+        "coluna": "novo_pac_superior_consolidacao"
+      },
+      {
+        "rotulo": "Valor total previsto",
+        "coluna": "novo_pac_superior_total_previsto"
+      }
+    ]
+  },
+  {
+    "ordem": 8,
+    "numero": "1.8",
+    "titulo": "NOVO PAC – EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA",
+    "indicadores": [
+      {
+        "rotulo": "Expansão",
+        "coluna": "novo_pac_ept_expansao"
+      },
+      {
+        "rotulo": "Consolidação",
+        "coluna": "novo_pac_ept_consolidacao"
+      },
+      {
+        "rotulo": "Valor total previsto",
+        "coluna": "novo_pac_ept_total_previsto"
+      }
+    ]
+  },
+  {
+    "ordem": 9,
+    "numero": "1.9",
+    "titulo": "NOVO PAC – HU BRASIL",
+    "indicadores": [
+      {
+        "rotulo": "Valor previsto",
+        "coluna": "novo_pac_hu_valor_previsto"
+      }
+    ]
+  },
+  {
+    "ordem": 10,
+    "numero": "1.10",
+    "titulo": "FUNDEB",
+    "indicadores": [
+      {
+        "rotulo": "2023",
+        "coluna": "fundeb_2023"
+      },
+      {
+        "rotulo": "2024",
+        "coluna": "fundeb_2024"
+      },
+      {
+        "rotulo": "2025",
+        "coluna": "fundeb_2025"
+      },
+      {
+        "rotulo": "2026",
+        "coluna": "fundeb_2026"
+      },
+      {
+        "rotulo": "Complementação VAAF 2026",
+        "coluna": "fundeb_valor_repassado_VAAF"
+      },
+      {
+        "rotulo": "Complementação VAAT 2026",
+        "coluna": "fundeb_valor_repassado_VAAT"
+      },
+      {
+        "rotulo": "Complementação VAAR 2026",
+        "coluna": "fundeb_valor_repassado_VAAR"
+      }
+    ]
+  },
+  {
+    "ordem": 11,
+    "numero": "1.11",
+    "titulo": "PNAE",
+    "indicadores": [
+      {
+        "rotulo": "Escolas apoiadas",
+        "coluna": "pnae_escolas_apoiadas"
+      },
+      {
+        "rotulo": "Valor Investido",
+        "coluna": "pnae_valor_investido"
+      },
+      {
+        "rotulo": "Abrangência",
+        "coluna": "pnae_abrangencia"
+      },
+      {
+        "rotulo": "Referência",
+        "coluna": "pnae_referencia"
+      }
+    ]
+  },
+  {
+    "ordem": 12,
+    "numero": "1.12",
+    "titulo": "PNATE",
+    "indicadores": [
+      {
+        "rotulo": "Estudantes Beneficiados",
+        "coluna": "pnate_estudantes_beneficiados"
+      },
+      {
+        "rotulo": "Valor Investido",
+        "coluna": "pnate_valor_investido"
+      },
+      {
+        "rotulo": "Abrangência",
+        "coluna": "pnate_abrangencia"
+      },
+      {
+        "rotulo": "Referência",
+        "coluna": "pnate_referencia"
+      }
+    ]
+  },
+  {
+    "ordem": 13,
+    "numero": "1.13",
+    "titulo": "INSTITUTOS FEDERAIS",
+    "indicadores": [
+      {
+        "rotulo": "Nº de IF",
+        "coluna": "if_numero"
+      },
+      {
+        "rotulo": "Campi",
+        "coluna": "if_campi"
+      },
+      {
+        "rotulo": "Matrículas",
+        "coluna": "if_matriculas"
+      }
+    ]
+  },
+  {
+    "ordem": 14,
+    "numero": "1.14",
+    "titulo": "UNIVERSIDADES FEDERAIS",
+    "indicadores": [
+      {
+        "rotulo": "Instituições",
+        "coluna": "uf_instituicoes"
+      },
+      {
+        "rotulo": "Campi",
+        "coluna": "uf_campi"
+      },
+      {
+        "rotulo": "Matriculas Graduação",
+        "coluna": "uf_matriculas_graduacao"
+      }
+    ]
+  }
+]

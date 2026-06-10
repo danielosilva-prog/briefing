@@ -1,0 +1,77 @@
+# ===================================
+# {{ cookiecutter.report_id }} Report Definition
+# {{ cookiecutter.report_name }}
+# ===================================
+
+# Required: Unique identifier (uppercase)
+id: {{ cookiecutter.report_id }}
+
+# Required: Human-readable name
+name: {{ cookiecutter.report_name }}
+
+# Optional: Description
+description: {{ cookiecutter.description }}
+
+# Optional: Version for tracking changes
+version: 1.0.0
+
+# Optional: Maintainers
+maintainer: {{ cookiecutter.author }}
+last_updated: "{{ cookiecutter._current_year | default('2024') }}"
+
+# Optional: Use legacy R service (default: false)
+legacy: false
+
+# Parameters this report accepts
+{% if cookiecutter.has_parameters == 'yes' -%}
+parameters:
+  - name: {{ cookiecutter.parameter_name }}
+    type: {{ cookiecutter.parameter_type }}
+    required: true
+    description: {{ cookiecutter.parameter_description }}
+{% else -%}
+# This report has no parameters (generates a single static report)
+parameters: []
+{% endif %}
+# Data source configurations
+sources:
+  bigquery:
+    project: br-mec-segape
+
+# Queries to execute (in order)
+queries:
+  - name: example_data
+    source: bigquery
+    file: queries/example_query.sql
+    description: Example query - replace with your actual data query
+
+# Charts to generate (optional)
+# Uncomment and configure as needed
+# charts:
+#   - name: example_chart
+#     type: bar
+#     data: example_data
+#     x: category
+#     y: value
+#     title: Example Chart
+#     color: "#2E4172"
+
+# Template configuration
+template:
+  entry: template/main.typ
+  assets: template/assets
+
+# Caching configuration
+cache:
+  enabled: true
+  ttl_days: 30
+
+# Output configuration
+output:
+{% if cookiecutter.has_parameters == 'yes' -%}
+  filename_template: "{{ cookiecutter.report_id | lower }}-{{ '{' }}{{ cookiecutter.parameter_name }}{{ '}' }}.pdf"
+{% else -%}
+  filename_template: "{{ cookiecutter.report_id | lower }}-report.pdf"
+{% endif -%}
+  gcs_bucket: segape-reports
+  gcs_path_template: "{{ cookiecutter.report_id }}/{filename}"
