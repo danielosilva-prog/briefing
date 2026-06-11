@@ -1,0 +1,30 @@
+id: BRIEF-LOCAL-BEAU
+name: Briefing Local Beau
+description: Versao visual do briefing local por UF, alimentada por CSV local.
+version: 0.1.0
+
+parameters:
+  - name: uf
+    type: string
+    required: true
+    description: Sigla da UF usada para selecionar a linha do arquivo
+  - name: input_file
+    type: string
+    required: true
+    description: Caminho para arquivo CSV, XLSX ou XLS com uma linha por UF
+
+sources:
+  bigquery:
+    project: br-mec-segape
+
+queries: []
+
+charts: []
+
+template:
+  entry: template/main.typ
+  assets: template/assets
+
+cache:
+  enabled: false
+  ttl_days: 30
