@@ -96,13 +96,13 @@
   columns: (1fr, 2.2cm, 4.65cm),
   gutter: 0cm,
   block(fill: color, radius: (left: 4pt), inset: 7.5pt, width: 100%)[
-    #text(size: 11pt, weight: "bold", fill: white)[#label]
+    #text(size: 16pt, weight: "bold", fill: white)[#label]
   ],
   block(fill: white, inset: 7.5pt, width: 100%)[
-    #align(right)[#text(size: 12pt, weight: "bold", fill: muted)[#local]]
+    #align(right)[#text(size: 16pt, weight: "bold", fill: muted)[#local]]
   ],
   block(fill: mock-teal, radius: (right: 4pt), inset: 7.5pt, width: 100%)[
-    #align(right)[#text(size: 12pt, weight: "bold", fill: white)[#brasil]]
+    #align(right)[#text(size: 16pt, weight: "bold", fill: white)[#brasil]]
   ],
 )
 
@@ -378,7 +378,7 @@
   width: width,
   height: height,
   fill: mock-teal,
-  radius: 4pt,
+  radius: (right: 4pt),
   inset: (x: 7pt, y: 6pt),
 )[
   #align(right + horizon)[#text(size: size, weight: "bold", fill: white)[#value]]
@@ -392,20 +392,133 @@
   )
 }
 
+#let metric-parts(value) = {
+  let parts = value.split(" (")
+  (
+    main: parts.at(0, default: value).trim(),
+    detail: if parts.len() > 1 {
+      ("(" + parts.slice(1).join(" (").trim()).replace(" matrículas", "")
+    } else {
+      ""
+    },
+  )
+}
+
+#let highlighted-percent-text(value, base-fill: mock-gray, percent-fill: mock-blue) = {
+  for word in value.split(" ") {
+    if word.contains("%") {
+      text(size: 16pt, weight: "bold", fill: percent-fill)[#word]
+    } else {
+      text(size: 16pt, weight: "regular", fill: base-fill)[#word]
+    }
+    h(0.1cm)
+  }
+}
+
 #let cnca-overlay-row(y, label, local, brasil, fill) = {
-  at(5.88cm, y, 7.35cm)[
+  at(1.28cm, y, 7.35cm)[
     #block(width: 100%, fill: fill, radius: (left: 4pt), inset: (x: 7pt, y: 5pt))[
-      #text(size: 10.5pt, weight: "bold", fill: white)[#label]
+      #text(size: 16pt, weight: "bold", fill: white)[#label]
     ]
   ]
   at(13.23cm, y, 1.42cm)[
-    #align(right + horizon)[#text(size: 10.5pt, weight: "bold", fill: mock-gray)[#local]]
+    #align(right + horizon)[#text(size: 16pt, weight: "bold", fill: mock-gray)[#local]]
   ]
-  at(14.68cm, y, 5.05cm)[#value-panel(brasil, width: 4.95cm, size: 10.5pt)]
+  at(14.68cm, y, 5.05cm)[#value-panel(brasil, width: 4.95cm, size: 16pt)]
 }
 
+#let cnca-number-row(y, label, local, brasil, height: 0.72cm) = {
+  at(5.88cm, y, 6.62cm)[
+    #block(
+      width: 6.62cm,
+      height: height,
+      fill: mock-blue,
+      radius: (left: 4pt),
+      inset: (x: 6pt, y: 3pt),
+    )[
+      #align(left + horizon)[#text(size: 16pt, weight: "bold", fill: white)[#label]]
+    ]
+  ]
+  at(12.5cm, y, 2.18cm)[
+    #block(
+      width: 100%,
+      height: height,
+      fill: white,
+      inset: (x: 5pt, y: 3pt),
+    )[
+      #block(width: 100%, height: 100%)[
+        #align(center + horizon)[
+          #text(size: 16pt, weight: "bold", fill: mock-gray)[#local]
+        ]
+      ]
+    ]
+  ]
+  at(14.68cm, y, 5.05cm)[
+    #block(
+      width: 5.5cm,
+      height: height,
+      fill: mock-teal,
+      radius: (right: 4pt),
+      inset: (x: 7pt, y: 3pt),
+    )[
+      #align(right + horizon)[#text(size: 16pt, weight: "bold", fill: white)[#brasil]]
+    ]
+  ]
+}
+
+#let cnca-value-row(y, label, local, brasil, height: 1.0cm) = {
+  at(1.28cm, y, 9.4cm)[
+    #block(
+      width: 100%,
+      height: height,
+      fill: mock-orange,
+      radius: (left: 4pt),
+      inset: (x: 10pt, y: 5pt),
+    )[
+      #align(left + horizon)[#text(size: 16pt, weight: "bold", fill: white)[#label]]
+    ]
+  ]
+  at(10.68cm, y, 4.0cm)[
+    #block(
+      width: 100%,
+      height: height,
+      fill: white,
+      inset: (x: 5pt, y: 4pt),
+    )[
+      #block(width: 100%, height: 100%)[
+        #align(center + horizon)[
+          #text(size: 16pt, weight: "bold", fill: mock-gray)[#local]
+        ]
+      ]
+    ]
+  ]
+  at(14.68cm, y, 5.05cm)[
+    #block(
+      width: 5.5cm,
+      height: height,
+      fill: mock-teal,
+      radius: (right: 4pt),
+      inset: (x: 7pt, y: 4pt),
+    )[
+      #align(right + horizon)[
+        #text(size: 16pt, weight: "bold", fill: white)[#brasil]
+      ]
+    ]
+  ]
+}
+
+#at(1.28cm, 0.38cm, 6.6cm)[
+  #text(size: 15pt, weight: "bold", fill: white)[BRIEFING - Visita Ministerial]
+]
+
 #at(8.7cm, 0.22cm, 9.15cm)[
-  #block(width: 100%, height: 0.82cm, fill: white, radius: 5pt, inset: 0pt)[
+  #block(
+    width: 100%,
+    height: 0.82cm,
+    fill: white,
+    radius: 5pt,
+    inset: (left: 0.5cm),
+  )[
     #align(left + horizon)[
       #text(size: 16pt, weight: "bold", fill: mock-blue)[
         #contexto.at("territorio", default: contexto.at("uf", default: "UF"))
@@ -413,10 +526,10 @@
     ]
   ]
 ]
-#at(17.8cm, 0.18cm, 1.32cm)[
+#at(17.8cm, 0.09cm, 1.52cm)[
   #image("assets/flag.png", width: 100%)
 ]
-#at(16.0cm, 1.93cm, 4.5cm)[
+#at(16.0cm, 1.66cm, 5.7cm)[
   #align(center)[
     #grid(
       columns: (auto, auto),
@@ -430,26 +543,26 @@
 
 #let schools-panel-height = 2.05cm
 
-#at(6.15cm, 2.62cm, 8.5cm)[
+#at(6.15cm, 2.2cm, 8.5cm)[
   #block(width: 100%, height: schools-panel-height, fill: pale, radius: (left: 4pt), inset: 8pt)[
     #grid(
       columns: (1fr, auto),
       align: (left + horizon, right + horizon),
-      text(size: 14pt)[ESCOLAS#linebreak()CONECTADAS#linebreak()#text(size: 11.5pt)[(NÍVEL 4 E 5)]],
+      text(size: 16pt)[ESCOLAS#linebreak()CONECTADAS#linebreak()#text(size: 11.5pt)[(NÍVEL 4 E 5)]],
       align(right)[
         #text(size: 16pt, weight: "bold", fill: mock-blue)[#school-value("local_pct")]
         #linebreak()
-        #text(size: 12.5pt)[#school-value("local_count")]
+        #text(size: 16pt)[#school-value("local_count")]
       ],
     )
   ]
 ]
-#at(14.68cm, 2.62cm, 8.5cm)[
+#at(14.68cm, 2.2cm, 8.5cm)[
   #value-panel(
     [
       #school-value("brasil_pct")
       #linebreak()
-      #text(size: 12.5pt, weight: "regular")[(#school-value("brasil_count"))]
+      #text(size: 16pt, weight: "regular")[(#school-value("brasil_count"))]
     ],
     width: 5.50cm,
     height: schools-panel-height,
@@ -457,74 +570,175 @@
   )
 ]
 
-#at(6.15cm, 5.02cm, 8.5cm)[
-  #block(fill: pale, radius: (left: 4pt), inset: 8pt)[
+#let eti-summary-height = 1.45cm
+
+#at(6.15cm, 4.98cm, 8.5cm)[
+  #block(width: 100%, height: eti-summary-height, fill: pale, radius: (left: 4pt), inset: 8pt)[
     #grid(
       columns: (1fr, auto),
       align: (left + horizon, right + horizon),
-      text(size: 13pt)[MATRÍCULAS#linebreak()FOMENTADAS],
-      text(size: 13.5pt, weight: "bold", fill: mock-blue)[#pair-value("eti_matriculas")],
+      text(size: 16pt)[MATRÍCULAS#linebreak()FOMENTADAS],
+      align(right + horizon)[
+        #text(size: 16.0pt, weight: "bold", fill: mock-blue)[#pair-value("eti_matriculas")]
+        #linebreak()
+        #text(size: 16.0pt, weight: "regular", fill: mock-gray)[2023-2025]
+      ],
     )
   ]
 ]
-#at(14.68cm, 5.02cm, 5.05cm)[#value-panel(pair-value("eti_matriculas", side: "brasil"), width: 4.95cm)]
-#at(6.15cm, 6.78cm, 8.5cm)[
-  #block(fill: pale, radius: (left: 4pt), inset: 8pt)[
+#at(14.68cm, 4.98cm, 5.05cm)[
+  #value-panel(
+    [
+      #text(size: 16.0pt, weight: "bold")[#pair-value("eti_matriculas", side: "brasil")]
+      #linebreak()
+      #text(size: 16.0pt, weight: "regular")[2023-2025]
+    ],
+    width: 5.5cm,
+    height: eti-summary-height,
+  )
+]
+#at(6.15cm, 6.72cm, 8.5cm)[
+  #block(width: 100%, height: eti-summary-height, fill: pale, radius: (left: 4pt), inset: 8pt)[
     #grid(
       columns: (1fr, auto),
       align: (left + horizon, right + horizon),
-      text(size: 13pt)[VALOR#linebreak()FOMENTADO],
-      text(size: 13.5pt, weight: "bold", fill: mock-blue)[#pair-value("eti_valor")],
+      text(size: 16pt)[VALOR#linebreak()FOMENTADO],
+      align(right + horizon)[
+        #text(size: 16pt, weight: "bold", fill: mock-blue)[#pair-value("eti_valor")]
+        #linebreak()
+        #text(size: 16pt, weight: "regular", fill: mock-gray)[2023-2025]
+      ],
     )
   ]
 ]
-#at(14.68cm, 6.78cm, 5.05cm)[#value-panel(pair-value("eti_valor", side: "brasil"), width: 4.95cm)]
+#at(14.68cm, 6.72cm, 5.05cm)[
+  #value-panel(
+    [
+      #text(size: 16.0pt, weight: "bold")[#pair-value("eti_valor", side: "brasil")]
+      #linebreak()
+      #text(size: 16pt, weight: "regular")[2023-2025]
+    ],
+    width: 5.5cm,
+    height: eti-summary-height,
+  )
+]
 
 #at(1.28cm, 8.5cm, 4.25cm)[
-  #text(size: 10pt)[\*2026 com dado mais recente de 2025; 2026 ainda não publicado.]
+  #text(size: 16pt)[\*2026 com dado mais recente de 2025; 2026 ainda não publicado.]
 ]
-#at(6.15cm, 8.45cm, 4cm)[#text(size: 14pt)[MATRÍCULAS]]
+#at(6.15cm, 8.45cm, 4cm)[#text(size: 16pt)[MATRÍCULAS]]
 #let local-series = beau.at("eti_serie", default: (local: ("—",))).at("local", default: ("—",))
 #let brasil-series = beau.at("eti_serie", default: (brasil: ("—",))).at("brasil", default: ("—",))
+#let series-row-height = 0.82cm
 #for index in range(0, local-series.len()) {
   let local = series-parts(local-series.at(index))
   let brasil = series-parts(brasil-series.at(index, default: "—"))
+  let local-metric = metric-parts(local.value)
+  let brasil-metric = metric-parts(brasil.value)
   let y = 9.0cm + index * 1.22cm
   at(6.15cm, y, 2.25cm)[
-    #block(fill: mock-blue, radius: (left: 4pt), inset: (x: 6pt, y: 5pt))[
-      #align(center)[#text(size: 12pt, weight: "bold", fill: white)[#local.year]]
+    #block(width: 100%, height: series-row-height, fill: mock-blue, radius: (left: 4pt), inset: (x: 6pt, y: 5pt))[
+      #align(center)[#text(size: 16pt, weight: "bold", fill: white)[#local.year]]
     ]
   ]
-  at(8.4cm, y, 6.25cm)[
-    #align(right + horizon)[#text(size: 10.5pt, weight: "bold", fill: mock-gray)[#local.value]]
+  at(8.4cm, y, 6.28cm)[
+    #block(
+      width: 100%,
+      height: series-row-height,
+      fill: white,
+      stroke: 0.25pt + rgb("E4E4E4"),
+      inset: (x: 7pt, y: 5pt),
+    )[
+      #align(right + horizon)[
+        #text(size: 16pt, weight: "bold", fill: mock-gray)[#local-metric.main]
+        #if local-metric.detail != "" {
+          h(0.12cm)
+          text(size: 16pt, weight: "regular", fill: mock-gray)[#local-metric.detail]
+        }
+      ]
+    ]
   ]
-  at(14.68cm, y, 5.05cm)[#value-panel(brasil.value, width: 4.95cm, size: 10.5pt)]
+  at(14.68cm, y, 5.05cm)[
+    #block(
+      width: 5.5cm,
+      height: series-row-height,
+      fill: mock-teal,
+      radius: (right: 4pt),
+      inset: (x: 7pt, y: 5pt),
+    )[
+      #align(right + horizon)[
+        #text(size: 16pt, weight: "bold", fill: white)[#brasil-metric.main]
+        #if brasil-metric.detail != "" {
+          h(0.12cm)
+          text(size: 16pt, weight: "regular", fill: white)[#brasil-metric.detail]
+        }
+      ]
+    ]
+  ]
 }
 
-#at(5.88cm, 14.05cm, 3cm)[#text(size: 14pt)[NÚMEROS]]
-#cnca-overlay-row(14.52cm, "Cantinhos de Leitura", pair-value("cnca_cantinhos"), pair-value("cnca_cantinhos", side: "brasil"), mock-blue)
-#cnca-overlay-row(15.38cm, "Escolas Apoiadas", pair-value("cnca_escolas"), pair-value("cnca_escolas", side: "brasil"), mock-blue)
-#cnca-overlay-row(16.24cm, "Articuladores RENALFA (2025)", pair-value("cnca_articuladores"), pair-value("cnca_articuladores", side: "brasil"), mock-blue)
+#at(5.88cm, 14.05cm, 3cm)[#text(size: 16pt)[NÚMEROS]]
+#cnca-number-row(14.6cm, "Cantinhos de Leitura", pair-value("cnca_cantinhos"), pair-value("cnca_cantinhos", side: "brasil"))
+#cnca-number-row(15.45cm, "Escolas Apoiadas", pair-value("cnca_escolas"), pair-value("cnca_escolas", side: "brasil"))
+#cnca-number-row(16.30cm, "Articuladores RENALFA\n(2025)", pair-value("cnca_articuladores"), pair-value("cnca_articuladores", side: "brasil"), height: 1.18cm)
 
-#at(1.28cm, 17.18cm, 3cm)[#text(size: 14pt)[VALORES]]
-#cnca-overlay-row(17.68cm, "Valor Investido em Cantinhos da Leitura", pair-value("cnca_valor_cantinhos"), pair-value("cnca_valor_cantinhos", side: "brasil"), mock-orange)
-#cnca-overlay-row(18.87cm, "Repasse para Articuladores RENALFA", pair-value("cnca_valor_articuladores"), pair-value("cnca_valor_articuladores", side: "brasil"), mock-orange)
-#cnca-overlay-row(20.06cm, "Valor empenhado para aquisição de materiais", pair-value("cnca_materiais"), pair-value("cnca_materiais", side: "brasil"), mock-orange)
-#cnca-overlay-row(21.25cm, "Valor empenhado para formação de profissionais da educação", pair-value("cnca_formacao"), pair-value("cnca_formacao", side: "brasil"), mock-orange)
-#cnca-overlay-row(22.44cm, "Total Investido", pair-value("cnca_total"), pair-value("cnca_total", side: "brasil"), mock-orange)
+#at(1.28cm, 17.58cm, 3cm)[#text(size: 16pt)[VALORES]]
+#cnca-value-row(18.15cm, "Valor Investido em Cantinhos da\nLeitura", pair-value("cnca_valor_cantinhos"), pair-value("cnca_valor_cantinhos", side: "brasil"), height: 1.24cm)
+#cnca-value-row(19.6cm, "Repasse para Articuladores\nRENALFA", pair-value("cnca_valor_articuladores"), pair-value("cnca_valor_articuladores", side: "brasil"), height: 1.24cm)
+#cnca-value-row(21.05cm, "Valor empenhado para aquisição\nde materiais", pair-value("cnca_materiais"), pair-value("cnca_materiais", side: "brasil"), height: 1.24cm)
+#cnca-value-row(22.5cm, "Valor empenhado para formação\nde profissionais da educação", pair-value("cnca_formacao"), pair-value("cnca_formacao", side: "brasil"), height: 1.38cm)
+#cnca-value-row(24.1cm, "Total Investido", pair-value("cnca_total"), pair-value("cnca_total", side: "brasil"), height: 0.92cm)
 
-#at(3.35cm, 25.65cm, 2.3cm)[#text(size: 10.5pt)[INDICADOR DE#linebreak()ALFABETIZAÇÃO (ICA)]]
-#at(5.65cm, 25.55cm, 9.0cm)[
-  #block(fill: pale, inset: 7pt)[
-    #align(center)[#text(size: 12pt, weight: "bold", fill: mock-blue)[#pair-value("ica")]]
+#let ica-panel-height = 1.72cm
+
+#at(1.28cm, 25.55cm, 13.4cm)[
+  #block(
+    width: 100%,
+    height: ica-panel-height,
+    fill: pale,
+    radius: (left: 4pt),
+    inset: 0pt,
+  )[]
+]
+#at(1.62cm, 25.79cm, 1.05cm)[
+  #image("assets/graduation-cap.png", width: 100%)
+]
+#at(2.85cm, 25.72cm, 4.45cm)[
+  #block(width: 100%, height: 1.4cm)[
+    #align(left + horizon)[
+      #text(size: 16pt, fill: mock-gray)[
+        INDICADOR DE
+        #linebreak()
+        ALFABETIZAÇÃO (ICA)
+      ]
+    ]
+  ]
+]
+#at(7.3cm, 25.62cm, 7.38cm)[
+  #block(width: 100%, height: 1.58cm, inset: (x: 6pt, y: 4pt))[
+    #align(center + horizon)[
+      #highlighted-percent-text(pair-value("ica"))
+    ]
   ]
 ]
 #at(14.68cm, 25.55cm, 5.05cm)[
-  #block(fill: mock-teal, radius: (right: 4pt), inset: 7pt)[
-    #align(center)[#text(size: 12pt, fill: white)[#pair-value("ica", side: "brasil")]]
+  #block(
+    width: 5.5cm,
+    height: ica-panel-height,
+    fill: mock-teal,
+    radius: (right: 4pt),
+    inset: (x: 8pt, y: 5pt),
+  )[
+    #align(center + horizon)[
+      #highlighted-percent-text(
+        pair-value("ica", side: "brasil"),
+        base-fill: white,
+        percent-fill: white,
+      )
+    ]
   ]
 ]
-#at(1.9cm, 27.25cm, 7cm)[#text(size: 8.5pt)[\*Em 2023, o SAEB era usado como métrica]]
+#at(1.9cm, 27.85cm, 14cm)[#text(size: 16pt)[\*Em 2023, o SAEB era usado como métrica]]
 
 #pagebreak()
 
